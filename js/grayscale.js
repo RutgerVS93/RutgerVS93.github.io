@@ -41,8 +41,13 @@
 
 })(jQuery); // End of use strict
 
+  function get_location(){
+  	  if(supports-geolocation){
+	  	  navigator.geolocation.getCurrentPosition(show_map, handle_error);
+	  }
+  }
 
-function init() {
+function show_map() {
 
 	var latitude = position.coords.latitude;
 	var longitude = position.coords.longitude;
@@ -50,6 +55,7 @@ function init() {
 	var myOptions = {
 		zoom: 10,
 		center: latlng
+		mapTypeId: google,maps.mapTypeId.ROADMAP
 	};
 	var map = new google.maps.Map(document.getElementById("map"), myOptions)
 	var marker = new google.maps.Marker({
@@ -167,3 +173,5 @@ function init() {
       }]
     }]
   };
+
+  get_location();
