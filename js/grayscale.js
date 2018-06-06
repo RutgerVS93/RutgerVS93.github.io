@@ -59,7 +59,7 @@ function init() {
     zoom: 15,
 
     // The latitude and longitude to center the map (always required)
-    center: new google.maps.LatLng(40.6700, -73.9400), // New York
+    center: new google.maps.LatLng(45.6700, -70.9400), // New York
 
     // Disables the default Google Maps UI components
     disableDefaultUI: true,
@@ -183,7 +183,7 @@ function init() {
   var mapElement = document.getElementById('map');
 
   // Create the Google Map using out element and options defined above
-  //map = new google.maps.Map(mapElement, mapOptions);
+  map = new google.maps.Map(mapElement, mapOptions);
 
   infoWindow = new google.maps.infoWindow;
 
