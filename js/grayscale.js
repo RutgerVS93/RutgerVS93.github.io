@@ -174,4 +174,11 @@ function show_map() {
     }]
   };
 
+  function handle_error(err) {
+  if (err.code == 1) {
+    // user said no!
+	$("#msg").text('You chose not to share your location.');
+  }
+}
+
   get_location();
