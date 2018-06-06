@@ -41,33 +41,23 @@
 
 })(jQuery); // End of use strict
 
-// Google Maps Scripts
-var map;
-var infoWindow;
-// When the window has finished loading create our google map below
-google.maps.event.addDomListener(window, 'load', init);
-google.maps.event.addDomListener(window, 'resize', function() {
-  map.setCenter(new google.maps.LatLng(40.6700, -73.9400));
-});
 
 function init() {
-  // Basic options for a simple Google Map
-  // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
 
-  var mapOptions = {
-    // How zoomed in you want the map to start at (always required)
-    zoom: 15,
+	var latitude = position.coords.latitude;
+	var longitude = position.coords.longitude;
+	var latlng = new google.maps.LatLng(latitude, longitude);
+	var myOptions = {
+		zoom: 10,
+		center: latlng
+	};
+	var map = new google.maps.Map(document.getElementById("map"), myOptions)
+	var marker = new google.maps.Marker({
+		position: latlng
+	});
 
-    // The latitude and longitude to center the map (always required)
-    center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude), // New York
+	marker.setMap(map);
 
-    // Disables the default Google Maps UI components
-    disableDefaultUI: true,
-    scrollwheel: false,
-    draggable: false,
-
-    // How you would like to style the map.
-    // This is where you would paste any style found on Snazzy Maps.
     styles: [{
       "featureType": "water",
       "elementType": "geometry",
@@ -177,48 +167,3 @@ function init() {
       }]
     }]
   };
-
-  // Get the HTML DOM element that will contain your map
-  // We are using a div with id="map" seen below in the <body>
-  var mapElement = document.getElementById('map');
-
-  // Create the Google Map using out element and options defined above
-  map = new google.maps.Map(mapElement, mapOptions);
-
-  infoWindow = new google.maps.infoWindow;
-
-	if (navigator.geolocation){
-  	  navigator.geolocation.getCurrentPosition(function(position)){
-	  	  var pos ={
-		  	  lat: position.coords.latitude,
-			  lng: position.coords.longitude
-		  };
-	  }
-
-	  infoWindow.setPosition(pos);
-	  infoWindow.setContent('Location found.');
-	  infoWindow.open(map);
-	}, function() {
-		handleLocationError(true, infowindow, map.getCenter());
-});
-}else{
-	handleLocationError(false, infoWindow, map.getCenter());
-}
-
-function handleLocationError(browserHasGeolaction, infoWindow, pos){
-	infoWindow.setPosition(pos);
-	infoWindow.setContent(browserHasGeolaction ?
-								'Error: Geolocation failed' :
-								'Error: Browser doesnt support geolocation');
-	infoWindow.open(map);
-}
-
-  // Custom Map Marker Icon - Customize the map-marker.png file to customize your icon
-  //var image = 'img/map-marker.svg';
-  //var myLatLng = new google.maps.LatLng(40.6700, -73.9400);
-  //var beachMarker = new google.maps.Marker({
-  //  position: myLatLng,
-  //  map: map,
-  //  icon: image
-  //});
-//}
