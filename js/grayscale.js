@@ -43,6 +43,7 @@
 
 // Google Maps Scripts
 var map = null;
+var infoWindow = null;
 // When the window has finished loading create our google map below
 google.maps.event.addDomListener(window, 'load', init);
 google.maps.event.addDomListener(window, 'resize', function() {
@@ -182,6 +183,34 @@ function init() {
 
   // Create the Google Map using out element and options defined above
   map = new google.maps.Map(mapElement, mapOptions);
+
+  infoWindow = new google.maps.infoWindow;
+
+	if (navigator.geolocation){
+  	  navigator.geolocation.getCurrentPosition(function(position)){
+	  	  var pos ={
+		  	  lat: position.coords.latitude,
+			  lng: position.coords.longitude
+		  };
+	  }
+
+	  infoWindow.setPosition(pos);
+	  infoWindow.setContent('Location found.');
+	  infoWindow.open(map);
+	}, function() {
+		handleLocationError(true, infowindow, map.getCenter());
+});
+}else{
+	handleLocationError(false, infoWindow, map.getCenter());
+}
+
+function handleLocationError(browserHasGeolaction, infoWindow, pos){
+	infoWindow.setPosition(pos);
+	infoWindow.setContent(browserHasGeolaction ?
+								'Error: Geolocation failed' :
+								'Error: Browser doesnt support geolocation');
+	infoWindow.open(map);
+}
 
   // Custom Map Marker Icon - Customize the map-marker.png file to customize your icon
   var image = 'img/map-marker.svg';
