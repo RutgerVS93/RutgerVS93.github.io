@@ -41,26 +41,19 @@
 
 })(jQuery); // End of use strict
 
-  function get_location(){
-  	  if(supports-geolocation){
-	  	  navigator.geolocation.getCurrentPosition(show_map, handle_error);
-	  }
+var lat = null;
+function getLocation(){
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
   }
+}
 
-function show_map() {
-
-	var latitude = position.coords.latitude;
-	var longitude = position.coords.longitude;
-	var latlng = new google.maps.LatLng(latitude, longitude);
-	var myOptions = {
-		zoom: 10,
-		center: latlng
-		mapTypeId: google,maps.mapTypeId.ROADMAP
-	};
-	var map = new google.maps.Map(document.getElementById("map"), myOptions)
-	var marker = new google.maps.Marker({
-		position: latlng
-	});
+function showPosition(position){
+  var mapOptions = {
+    zoom: 17;
+    center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)/*
+  }
+}
 
 	marker.setMap(map);
 
@@ -171,8 +164,20 @@ function show_map() {
       }, {
         "weight": 1.2
       }]
-    }]
+    }] */
   };
+
+  var mapElement = document.getElementById('map');
+  map = new google.maps.Map(mapElement, mapOptions);
+  var image = 'img/map-marker.svg';
+  var myLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+  var beachMarker = new google.maps.Marker({
+    position: myLatLng
+    map: map
+    icon: image
+  });
+
+  getLocation();
 
   function handle_error(err) {
   if (err.code == 1) {
@@ -180,5 +185,3 @@ function show_map() {
 	$("#msg").text('You chose not to share your location.');
   }
 }
-
-  get_location();
