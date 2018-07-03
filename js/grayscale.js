@@ -41,6 +41,10 @@
 
 })(jQuery); // End of use strict
 
+var x = 0;
+var y = 0;
+var z = 0;
+
 //AJAX Stuff
 function loadDoc() {
   var xhttp = new XMLHttpRequest();
@@ -57,17 +61,16 @@ function loadDoc() {
 
 //Test
 function test(){
-  window.alert("test");
+  //window.alert("test");
+  window.alert(x + "" + y + "" + z);
   document.getElementById("test").innerHTML = "werkt";
 }
 
-//Accelerometer Stuff
-function handleOrientation(event){
-  var absolute = event.absolute;
-  var aplha = event.aplha;
-  var beta = event.beta;
-  var gamma = event.gamma;
-  window.alert(aplha, beta, gamma);
-}
 
-window.addEventListener('deviceorientation', handleOrientation);
+
+//Accelerometer Stuff
+window.ondevicemotion = function(event) {
+  x = event.accelerationIncludingGravity.x;
+  y = event.accelerationIncludingGravity.y;
+  z = event.accelerationIncludingGravity.z;
+}
