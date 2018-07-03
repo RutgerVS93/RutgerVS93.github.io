@@ -48,13 +48,10 @@
       <div class="intro-body">
         <div class="container">
           <div class="row">
-            <div class="col-lg-8 mx-auto">
+            <div id="divId" class="col-lg-8 mx-auto">
               <h1 class="brand-heading">Hoi Fem</h1>
-              <p class="intro-text">A free, responsive, one page Bootstrap theme.
-                <br>Created by Start Bootstrap.</p>
-              <a href="#about" class="btn btn-circle js-scroll-trigger">
-                <i class="fa fa-angle-double-down animated"></i>
-              </a>
+              <button id="valueButton" type="button" onclick="loadDoc()">Show new values</button>
+              <button id="test" onclick="test()">test</button>
             </div>
           </div>
         </div>
@@ -79,10 +76,6 @@
       </div>
     </section>
 
-    <!-- Map Section -->
-    <div id="map"></div>
-    <script src="js/grayscale.js"></script>
-
     <!-- Footer -->
     <footer>
       <div class="container text-center">
@@ -97,11 +90,9 @@
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWPQhV1ZQn-GWRR1E-ZCNuGo536S7YUyY"></script>
-
     <!-- Custom scripts for this template -->
     <script src="js/grayscale.min.js"></script>
+    <script src="js/grayscale.js"></script>
 
   </body>
 

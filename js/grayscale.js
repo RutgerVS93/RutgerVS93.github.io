@@ -41,34 +41,33 @@
 
 })(jQuery); // End of use strict
 
-var lat = null;
-function getLocation(){
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
+//AJAX Stuff
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("divId").innerHTML = this.responseText;
+      window.alert("hoi");
+    }
   }
+  xhttp.open("GET", "ajax_info.txt", true);
+  xhttp.send();
 }
 
-function showPosition(position){
-  var mapOptions = {
-    zoom: 17;
-    center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
-  };
-
-  var mapElement = document.getElementById('map');
-  map = new google.maps.Map(mapElement, mapOptions);
-  var image = 'img/map-marker.svg';
-  var myLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-  var beachMarker = new google.maps.Marker({
-    position: myLatLng
-    map: map
-    icon: image
-  });
-
-  getLocation();
-
-  function handle_error(err) {
-  if (err.code == 1) {
-    // user said no!
-	$("#msg").text('You chose not to share your location.');
-  }
+//Test
+function test(){
+  window.alert("test");
+  document.getElementById("test").innerHTML = "werkt";
 }
+
+//Accelerometer Stuff
+function handleOrientation(event){
+  var absolute = event.absolute;
+  var aplha = event.aplha;
+  var beta = event.beta;
+  var gamma = event.gamma;
+  window.alert(aplha, beta, gamma);
+}
+
+window.addEventListener('deviceorientation', handleOrientation);
