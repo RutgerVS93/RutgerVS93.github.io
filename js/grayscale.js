@@ -45,6 +45,13 @@ var x = 0;
 var y = 0;
 var z = 0;
 
+//Accelerometer Stuff
+window.ondevicemotion = function(event) {
+  x = event.accelerationIncludingGravity.x;
+  y = event.accelerationIncludingGravity.y;
+  z = event.accelerationIncludingGravity.z;
+}
+
 //AJAX Stuff
 function loadDoc() {
   var xhttp = new XMLHttpRequest();
@@ -63,14 +70,8 @@ function loadDoc() {
 function test(){
   //window.alert("test");
   window.alert(x + "" + y + "" + z);
-  document.getElementById("test").innerHTML = "werkt";
+  document.getElementById("test").innerHTML = x + " " + y + " " + z;
 }
 
 
 
-//Accelerometer Stuff
-window.ondevicemotion = function(event) {
-  x = event.accelerationIncludingGravity.x;
-  y = event.accelerationIncludingGravity.y;
-  z = event.accelerationIncludingGravity.z;
-}
