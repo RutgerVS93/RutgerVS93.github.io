@@ -52,26 +52,21 @@ window.ondevicemotion = function(event) {
   z = event.accelerationIncludingGravity.z;
 }
 
-//AJAX Stuff
-function loadDoc() {
-  var xhttp = new XMLHttpRequest();
-
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("divId").innerHTML = this.responseText;
-      window.alert("hoi");
-    }
-  }
-  xhttp.open("GET", "ajax_info.txt", true);
-  xhttp.send();
-}
-
 //Test
 function test(){
   //window.alert("test");
   window.alert(x + "" + y + "" + z);
   document.getElementById("test").innerHTML = x + " " + y + " " + z;
 }
+
+//AngularJS
+var app = angular.module("myShoppingList", []); 
+app.controller("myCtrl", function($scope) {
+    $scope.products = ["Milk", "Bread", "Cheese"];
+    $scope.addItem = function () {
+        $scope.products.push($scope.addMe);
+    }    
+});
 
 
 
