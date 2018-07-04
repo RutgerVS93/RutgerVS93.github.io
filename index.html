@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <!-- Custom scripts for this template -->
-    <script src="js/grayscale.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> 
-
   <head>
 
     <meta charset="utf-8">
@@ -85,13 +81,11 @@
     <section id="angularjs" class="content-section text-center">
     	<div class="container">
     		<div class="row">
-    			<div ng-app="myList" ng-controller="myCtrl">
-					<ul>
-						<li ng-repeat="x in items">{{x}}</li>
-					</ul>
-					<input ng-model="addMe">
-					<button ng-click="addItem()">Add</button>
-    			</div>
+    			<div id="AJAX">
+    				<button type="button" onclick="loadDoc()">Get Ajax Stuff</button>
+    				<br><br>
+    				<table id="demo"></table>
+				</div>
     		</div>
     	</div>
 	</section>
@@ -111,7 +105,8 @@
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
 
-
+    <!-- Custom scripts for this template -->
+    <script src="js/grayscale.js"></script>
 
   </body>
 
