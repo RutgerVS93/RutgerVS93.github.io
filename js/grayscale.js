@@ -67,6 +67,6 @@ function loadDoc(){
       document.getElementById("AJAX").innerHTML = this.responseXML;
     }
   };
-  xhttp.open("GET", "data.xml", true);
+  xhttp.open("GET", "https://rutgervs93.github.io/data.xml", true);
   xhttp.send();
 }
