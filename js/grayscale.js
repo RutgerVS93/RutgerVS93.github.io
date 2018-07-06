@@ -58,18 +58,6 @@ function accelerometerValues(){
   document.getElementById("xValue").innerHTML = "X Value: " + x;
   document.getElementById("yValue").innerHTML = "Y Value: " + y;
   document.getElementById("zValue").innerHTML = "Z Value: " + z;
-
-  var count, countLen, newEle, newText, xmlDoc, txt;
-  xmlDoc = xml.responseXML;
-  txt = "";
-  count = xmlDoc.getElementsByTagName("ACCELVALUE");
-  countLen = count.length;
-  for (i = 0; i < countLen; i++) {
-    newEle = xmlDoc.createElement("xValue");
-    newText = xmlDoc.createTextNode("<br>" + x);
-    newEle.appendChild(newText);
-    count[i].appendChild(newEle);
-  }
 }
 
 var alpha = 0;
@@ -95,9 +83,19 @@ function loadDoc(){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("AJAX").innerHTML = this.responseText;
+      //document.getElementById("AJAX").innerHTML = this.responseText;
+      readXML(this);
     }
   };
   xhttp.open("GET", "https://rutgervs93.github.io/data.xml", true);
   xhttp.send();
+}
+
+function readXML(xml){
+  var xmlDoc = xml.responseXML;
+  var i = xmlDoc.getElementsByTagName("TEXT")[0].childNodes[0];
+  document.getElementById("AJAX1").innerHTML = i.nodeValue;
+  i.nodeValue = "Anders";
+  i = xmlDoc.getElementsByTagName("TEXT")[0].childNodes[0];
+  document.getElementById("AJAX2").innerHTML = i.nodeValue;
 }
