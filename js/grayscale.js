@@ -88,8 +88,3 @@ function loadDoc(){
   xhttp.open("GET", "https://rutgervs93.github.io/data.xml", true);
   xhttp.send();
 }
-
-//Vibration
-function vibrate(){
-  navigator.vibrate(1000);
-}
