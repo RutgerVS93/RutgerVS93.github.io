@@ -54,7 +54,6 @@ window.ondevicemotion = function(event) {
 
 //Accelerometer Values
 function accelerometerValues(){
-  //document.getElementById("Accelerometer").innerHTML = x + " " + y + " " + z;
   document.getElementById("xValue").innerHTML = "X Value: " + x;
   document.getElementById("yValue").innerHTML = "Y Value: " + y;
   document.getElementById("zValue").innerHTML = "Z Value: " + z;
