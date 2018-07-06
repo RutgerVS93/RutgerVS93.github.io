@@ -52,11 +52,12 @@ window.ondevicemotion = function(event) {
   z = event.accelerationIncludingGravity.z;
 }
 
-//Test
-function test(){
-  //window.alert("test");
-  window.alert(x + "" + y + "" + z);
-  document.getElementById("test").innerHTML = x + " " + y + " " + z;
+//Accelerometer Values
+function accelerometerValues(){
+  //document.getElementById("Accelerometer").innerHTML = x + " " + y + " " + z;
+  document.getElementById("xValue").innerHTML = "X Value: " + x;
+  document.getElementById("yValue").innerHTML = "Y Value: " + y;
+  document.getElementById("zValue").innerHTML = "Z Value: " + z;
 }
 
 //AJAX Stuff
