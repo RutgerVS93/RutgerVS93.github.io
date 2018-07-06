@@ -84,14 +84,8 @@ function loadDoc(){
   xhttp.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200) {
       document.getElementById("AJAX1").innerHTML = this.responseText;
-      //readXML(this);
     }
   };
   xhttp.open("GET", "https://rutgervs93.github.io/data.xml", true);
   xhttp.send();
-}
-
-function readXML(xml){
-  var xmlDoc = xml.responseXML;
-  var i = xmlDoc.getElementsByTagName("TEXT")[Math.floor((Math.random() * 10)];
 }
