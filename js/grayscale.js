@@ -83,8 +83,8 @@ function loadDoc(){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("AJAX1").innerHTML = this.responseText;
-      //readXML(this);
+      //document.getElementById("AJAX1").innerHTML = this.responseText;
+      readXML(this);
     }
   };
   xhttp.open("GET", "https://rutgervs93.github.io/data.xml", true);
@@ -93,9 +93,5 @@ function loadDoc(){
 
 function readXML(xml){
   var xmlDoc = xml.responseXML;
-  var i = xmlDoc.getElementsByTagName("TEXT")[0].childNodes[0];
-  document.getElementById("AJAX1").innerHTML = i.nodeValue;
-  i.nodeValue = "Anders";
-  i = xmlDoc.getElementsByTagName("TEXT")[0].childNodes[0];
-  document.getElementById("AJAX2").innerHTML = i.nodeValue;
+  var i = xmlDoc.getElementsByTagName("TEXT")[Math.floor((Math.random() * 10)];
 }
