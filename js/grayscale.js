@@ -92,5 +92,5 @@ function loadDoc(){
 
 //Vibration
 function vibrate(){
-  navigator.vibrate(500, 400, 300, 200, 100);
+  navigator.vibrate(1000);
 }
