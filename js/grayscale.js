@@ -60,6 +60,24 @@ function accelerometerValues(){
   document.getElementById("zValue").innerHTML = "Z Value: " + z;
 }
 
+var alpha = 0;
+var beta = 0;
+var gamma = 0;
+
+//Gyroscope Stuff
+window.ondeviceorientation = function(event){
+  alpha = Math.round(event.alpha);
+  beta = Math.round(event.beta);
+  gamma = Math.round(event.gamma);
+}
+
+//Gyroscope Values
+function gyroscopeValues(){
+  document.getElementById("alphaValue").innerHTML = "Alpha Value: " + alpha;
+  document.getElementById("betaValue").innerHTML = "Beta Value: " + beta;
+  document.getElementById("gammaValue").innerHTML = "Gamma Value: " + gamma;
+}
+
 //AJAX Stuff
 function loadDoc(){
   var xhttp = new XMLHttpRequest();
