@@ -58,6 +58,18 @@ function accelerometerValues(){
   document.getElementById("xValue").innerHTML = "X Value: " + x;
   document.getElementById("yValue").innerHTML = "Y Value: " + y;
   document.getElementById("zValue").innerHTML = "Z Value: " + z;
+
+  var count, countLen, newEle, newText, xmlDoc, txt;
+  xmlDoc = xml.responseXML;
+  txt = "";
+  count = xmlDoc.getElementsByTagName("ACCELVALUE");
+  countLen = count.length;
+  for (i = 0; i < countLen; i++) {
+    newEle = xmlDoc.createElement("xValue");
+    newText = xmlDoc.createTextNode("<br>" + x);
+    newEle.appendChild(newText);
+    count[i].appendChild(newEle);
+  }
 }
 
 var alpha = 0;
@@ -80,15 +92,6 @@ function gyroscopeValues(){
 
 //AJAX Stuff
 function loadDoc(){
-
-  newAccel = xmlDoc.createElement("AccelValues");
-  newText = xmlDoc.createTextNode(x + "<br>" + y + "<br>" + z);
-  newAccel.appendChild(newText);
-  xmlDoc.getElementsByTagName("VALUE")[0].appendChild(newAccel);
-
-  //newGyro = xmlDoc.createElement("GyroValues");
-  //xmlDoc.getElementsByTagName("VALUE")[1].appendChild(newGyro);
-
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200) {
