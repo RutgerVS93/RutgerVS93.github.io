@@ -80,6 +80,15 @@ function gyroscopeValues(){
 
 //AJAX Stuff
 function loadDoc(){
+
+  newAccel = xmlDoc.createElement("AccelValues");
+  newText = xmlDoc.createTextNode(x + "<br>" + y + "<br>" + z);
+  newAccel.appendChild(newText);
+  xmlDoc.getElementsByTagName("VALUE")[0].appendChild(newAccel);
+
+  //newGyro = xmlDoc.createElement("GyroValues");
+  //xmlDoc.getElementsByTagName("VALUE")[1].appendChild(newGyro);
+
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function(){
     if (this.readyState == 4 && this.status == 200) {
