@@ -91,16 +91,15 @@ function loadDoc(){
 
 
 //Geolocation Stuff
-var x = document.getElementById("locationValues");
 function getLocation(){
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
   } else {
-    x.innerHTML = "Geolocation not supported in this browser";
+    document.getElementById("locationValues").innerHTML = "Geolocation not supported in this browser";
   }
 }
 
 function showPosition(position){
-  x.innerHTML = "Latitude: " + position.coords.latitude 
+  document.getElementById("locationValues").innerHTML = "Latitude: " + position.coords.latitude 
   + "<br>Longitude: " + position.coords.longitude;
 }
