@@ -281,3 +281,5 @@ img::selection {
 img::-moz-selection {
   background: transparent;
 }
+
+#mapid {height:180px;}
