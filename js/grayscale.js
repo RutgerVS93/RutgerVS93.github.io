@@ -88,3 +88,19 @@ function loadDoc(){
   xhttp.open("GET", "https://rutgervs93.github.io/data.xml", true);
   xhttp.send();
 }
+
+
+//Geolocation Stuff
+var x = document.getElementById("locationValues");
+function getLocation(){
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation not supported in this browser";
+  }
+}
+
+function showPosition(position){
+  x.innerHTML = "Latitude: " + position.coords.latitude 
+  + "<br>Longitude: " + position.coords.longitude;
+}
