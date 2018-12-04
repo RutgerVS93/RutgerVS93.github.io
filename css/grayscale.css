@@ -51,6 +51,8 @@ a:focus, a:hover {
   color: #1d9b6c;
 }
 
+#mapid { height: 180px; }
+
 #mainNav {
   font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin-bottom: 0;
@@ -282,4 +284,3 @@ img::-moz-selection {
   background: transparent;
 }
 
-#mapid {height:180px;}
