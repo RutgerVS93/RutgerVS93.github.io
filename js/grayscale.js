@@ -98,7 +98,7 @@ function getLocation(){
     document.getElementById("locationValues").innerHTML = "Geolocation not supported in this browser";
   }
 
-  var mymap = L.map('mapid').setView([51, 0], 13)
+  var mymap = L.map('mapid').setView([51, 0], 13);
 }
 
 function showPosition(position){
