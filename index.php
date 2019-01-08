@@ -90,6 +90,10 @@
     	</div>
 	</section>
 
+	<form action="" method="POST">
+		<input type="text" value="">
+	</form>
+
 	
 
     <!-- Bootstrap core JavaScript -->
@@ -108,5 +112,6 @@
     crossorigin=""></script>
 
   </body>
-
 </html>
+
+
