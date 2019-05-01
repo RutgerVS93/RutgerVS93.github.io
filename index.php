@@ -8,7 +8,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>webPage6</title>
     <title>Application Assigment</title>
 
     <!-- Bootstrap core CSS -->
